@@ -622,9 +622,9 @@ PlayerSettings:
   metroPackageVersion: 2017.2.1.2
   metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: Microsoft
-  metroCertificateIssuer: Microsoft
-  metroCertificateNotAfter: 004f768dd489d401
+  metroCertificateSubject: CreatingReality
+  metroCertificateIssuer: CreatingReality
+  metroCertificateNotAfter: 803168d519dad401
   metroApplicationDescription: MixedRealityToolkit-Unity
   wsaImages: {}
   metroTileShortName: MixedRealityToolkit-Unity
