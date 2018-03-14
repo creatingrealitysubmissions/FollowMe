@@ -11,6 +11,7 @@ public class naviAnimation : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		currentAnim = gameObject.GetComponent<Animation> ();
+		NaviAnimPlay ();
 	}
 
 	public void NaviAnimPlay(){
@@ -22,9 +23,12 @@ public class naviAnimation : MonoBehaviour {
 			currentAnim.Play ("FireAlarmToDoor");
 		}
 		if (animPos == 3) {
-			currentAnim.Play ("DoorToExit");
+			currentAnim.Play ("DoorToExit1");
 		}
 		if (animPos == 4) {
+			currentAnim.Play ("DoorToExit2");
+		}
+		if (animPos == 5) {
 			currentAnim.Play ("ExitToTop");
 		}
 	}
@@ -33,5 +37,6 @@ public class naviAnimation : MonoBehaviour {
 	public void MoveToNextAnim(){
 		animPos++;
         NaviAnimPlay();
+
     }
 }

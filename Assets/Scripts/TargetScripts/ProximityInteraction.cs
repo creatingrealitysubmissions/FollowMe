@@ -40,7 +40,8 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
     public void PlayAudio() {
         //audioManager.SetClip(seqState.successClip);
         Debug.Log("playing audio");
-        AudioManager.Instance.PlayClipAt(seqState.successClip, this.transform.position);
+        if((seqState != null))
+            AudioManager.Instance.PlayClipAt(seqState.successClip, this.transform.position);
     }
 
     public void RenderSuccessColor() {
@@ -53,7 +54,7 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
         RenderSuccessColor();
         if (isPlayAudioThenAnim) {
             PlayAudio();
-            Invoke("PlayAnimation", 15);
+            Invoke("PlayAnimation", 24);
             Invoke("PlaySecondaryAnimation", 15);
 
         } else {
