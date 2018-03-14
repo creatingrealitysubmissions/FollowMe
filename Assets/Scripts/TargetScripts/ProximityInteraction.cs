@@ -7,11 +7,15 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
     public Renderer[] renderers;
     public SequenceState seqState;
     public AudioManagerSingleton audioManager;
+
+    public GameObject naviGameObject;
     public bool hasPlayed;
 
     public GameObject extraAnimObj;
     //public bool playsAnimation;
     //public string animtransitionname;
+
+    public bool isPlayAudioThenAnim;
     
     // Use this for initialization
     void Start () {
@@ -43,18 +47,29 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
 
     public void Success() {
         RenderSuccessColor();
-        PlayAudio();
+        if (isPlayAudioThenAnim) {
+            PlayAudio();
+            Invoke("PlayAnimation", 1);
+            Invoke("PlaySecondaryAnimation", 15);
 
-        PlayAnimation();
-        PlaySecondaryAnimation();
+        } else {
+            PlayAudio();
+            PlayAnimation();
+            PlaySecondaryAnimation();   
+        }
     }
 
     //For main navi
     public void PlayAnimation() {
-        Debug.Log("playing:" + seqState.naviAnimClipName);
+        if (naviGameObject != null)
+            naviGameObject.GetComponent<naviAnimation>().MoveToNextAnim();
+
+        /*
+         Debug.Log("playing:" + seqState.naviAnimClipName);
 
         if(seqState.navi_avatar_animator != null && seqState.naviAnimClipName != null)
             seqState.navi_avatar_animator.Play(seqState.naviAnimClipName);
+         */
     }
 
     /*

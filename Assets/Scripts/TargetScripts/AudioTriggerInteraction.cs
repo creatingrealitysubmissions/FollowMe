@@ -12,6 +12,9 @@ public class AudioTriggerInteraction : MonoBehaviour, ITargetInteraction {
     public string targetkeyword = "yes";
     bool isKeywordSaid = false;
 
+    public GameObject naviGameObject;
+
+
     // Use this for initialization
     void Start() {
         boxCol = GetComponent<BoxCollider>();
@@ -70,10 +73,12 @@ public class AudioTriggerInteraction : MonoBehaviour, ITargetInteraction {
 
     //For main navi
     public void PlayAnimation() {
-        Debug.Log("playing:" + seqState.naviAnimClipName);
+        if (naviGameObject != null)
+            naviGameObject.GetComponent<naviAnimation>().MoveToNextAnim();
+       // Debug.Log("playing:" + seqState.naviAnimClipName);
 
-        if (seqState.navi_avatar_animator != null && seqState.naviAnimClipName != null)
-            seqState.navi_avatar_animator.Play(seqState.naviAnimClipName);
+        //if (seqState.navi_avatar_animator != null && seqState.naviAnimClipName != null)
+        //    seqState.navi_avatar_animator.Play(seqState.naviAnimClipName);
     }
 
     //For extra effects
