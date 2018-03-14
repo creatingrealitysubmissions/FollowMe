@@ -9,6 +9,7 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
     public AudioManagerSingleton audioManager;
     public bool hasPlayed;
 
+    public GameObject extraAnimObj;
     //public bool playsAnimation;
     //public string animtransitionname;
     
@@ -56,10 +57,19 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
             seqState.navi_avatar_animator.Play(seqState.naviAnimClipName);
     }
 
+    /*
     //For extra effects
     public void PlaySecondaryAnimation() {
         Debug.Log("playing:" + seqState.addAnimClipName);
         if (seqState.navi_avatar_animator != null && seqState.addAnimClipName != null)
             seqState.additional_animator.Play(seqState.addAnimClipName);
+    }
+    */
+
+    //For extra effects
+    public void PlaySecondaryAnimation() {
+        //Debug.Log("playing:" + seqState.addAnimClipName);
+        if (extraAnimObj != null)
+            extraAnimObj.GetComponent<playanim>().isThisOn = true ;
     }
 }

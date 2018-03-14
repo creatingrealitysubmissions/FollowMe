@@ -9,4 +9,6 @@ public class SequenceState : ScriptableObject {
     public string naviAnimClipName;
     public Animator additional_animator;
     public string addAnimClipName;
+
+    public string playanimscript;
 }
