@@ -348,7 +348,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -378,6 +378,7 @@ MonoBehaviour:
   star4: {fileID: 1065315673795828}
   starSuccess: {fileID: 0}
   score: 0
+  starBegin: 0
 --- !u!212 &212242025005479656
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -53,7 +53,8 @@ public class AudioTriggerInteraction : MonoBehaviour, ITargetInteraction {
 
     public void PlayAudio() {
         Debug.Log("playing audio");
-        AudioManager.Instance.PlayClipAt(seqState.successClip, this.transform.position);
+        if(seqState.successClip != null)
+            AudioManager.Instance.PlayClipAt(seqState.successClip, this.transform.position);
     }
 
     public void RenderSuccessColor() {

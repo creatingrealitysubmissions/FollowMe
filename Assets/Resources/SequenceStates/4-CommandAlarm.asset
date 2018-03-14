@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd64c0761e9954d4d8629437229ef168, type: 3}
   m_Name: 4-CommandAlarm
   m_EditorClassIdentifier: 
-  successClip: {fileID: 8300000, guid: b155dc8f201fe064da89a6971d0314b3, type: 3}
+  successClip: {fileID: 0}
   failClip: {fileID: 0}
   navi_avatar_animator: {fileID: 0}
   naviAnimClipName: 
   additional_animator: {fileID: 0}
   addAnimClipName: 
+  playanimscript: 

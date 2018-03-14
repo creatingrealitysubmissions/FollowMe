@@ -99,13 +99,14 @@ namespace HoloToolkit.Unity.InputModule
             //Check to make sure the recognized keyword exists in the methods dictionary, then invoke the corresponding method.
             if (enabled && responses.TryGetValue(eventData.RecognizedText.ToLower(), out keywordResponse))
             {
-                //keywordResponse.Invoke();
+                keywordResponse.Invoke();
 
-                
+                /*
                 foreach (KeyValuePair<string, UnityEvent> pair in responses)
                 {
                     StartCoroutine(waitSequence(keywordResponse));
                 }
+                */
                 
                 
             }
