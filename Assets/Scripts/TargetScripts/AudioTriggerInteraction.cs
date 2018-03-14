@@ -59,13 +59,27 @@ public class AudioTriggerInteraction : MonoBehaviour, ITargetInteraction {
         }
     }
 
-    public void MessageGameController() {
-        Debug.Log("Tell GM trigger entered");
-    }
 
     public void Success() {
-        MessageGameController();
         RenderSuccessColor();
         PlayAudio();
+
+        PlayAnimation();
+        PlaySecondaryAnimation();
+    }
+
+    //For main navi
+    public void PlayAnimation() {
+        Debug.Log("playing:" + seqState.naviAnimClipName);
+
+        if (seqState.navi_avatar_animator != null && seqState.naviAnimClipName != null)
+            seqState.navi_avatar_animator.Play(seqState.naviAnimClipName);
+    }
+
+    //For extra effects
+    public void PlaySecondaryAnimation() {
+        Debug.Log("playing:" + seqState.addAnimClipName);
+        if (seqState.navi_avatar_animator != null && seqState.addAnimClipName != null)
+            seqState.additional_animator.Play(seqState.addAnimClipName);
     }
 }
