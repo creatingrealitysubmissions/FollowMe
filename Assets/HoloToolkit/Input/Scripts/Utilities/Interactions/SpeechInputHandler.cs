@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 namespace HoloToolkit.Unity.InputModule
 {
@@ -95,11 +96,27 @@ namespace HoloToolkit.Unity.InputModule
         {
             UnityEvent keywordResponse;
 
-            // Check to make sure the recognized keyword exists in the methods dictionary, then invoke the corresponding method.
+            //Check to make sure the recognized keyword exists in the methods dictionary, then invoke the corresponding method.
             if (enabled && responses.TryGetValue(eventData.RecognizedText.ToLower(), out keywordResponse))
             {
-                keywordResponse.Invoke();
+                //keywordResponse.Invoke();
+
+                
+                foreach (KeyValuePair<string, UnityEvent> pair in responses)
+                {
+                    StartCoroutine(waitSequence(keywordResponse));
+                }
+                
+                
             }
+
         }
+        
+        IEnumerator waitSequence(UnityEvent e)
+        {
+            e.Invoke();
+            yield return new WaitForSeconds(3);
+        }
+        
     }
 }

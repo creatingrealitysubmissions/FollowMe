@@ -8,10 +8,18 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
     public SequenceState seqState;
     public AudioManagerSingleton audioManager;
 
-    public bool playsAnimation;
-    public string animtransitionname;
+    public GameObject naviGameObject;
+    public bool hasPlayed;
+
+    public GameObject extraAnimObj;
+    //public bool playsAnimation;
+    //public string animtransitionname;
+
+    public bool isPlayAudioThenAnim;
+    
     // Use this for initialization
     void Start () {
+        hasPlayed = false;
         boxCol = GetComponent<BoxCollider>();
         renderers = GetComponentsInChildren<Renderer>();
         audioManager = AudioManagerSingleton.Instance;
@@ -19,13 +27,16 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
 
     private void OnTriggerEnter(Collider other) {
         Debug.Log("Triggered");
-        Success();
+        if (!hasPlayed) {
+            hasPlayed = true;
+            Success();
+        }
     }
 
     public void PlayAudio() {
         //audioManager.SetClip(seqState.successClip);
         Debug.Log("playing audio");
-        audioManager.PlayClipAt(seqState.successClip, this.transform.position);
+        AudioManager.Instance.PlayClipAt(seqState.successClip, this.transform.position);
     }
 
     public void RenderSuccessColor() {
@@ -34,23 +45,46 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
         }
     }
 
-    public void MessageGameController() {
-        Debug.Log("Tell GM trigger entered");
-    }
-
     public void Success() {
-        MessageGameController();
         RenderSuccessColor();
-        PlayAudio();
+        if (isPlayAudioThenAnim) {
+            PlayAudio();
+            Invoke("PlayAnimation", 1);
+            Invoke("PlaySecondaryAnimation", 15);
 
-        if (playsAnimation) {
+        } else {
+            PlayAudio();
             PlayAnimation();
+            PlaySecondaryAnimation();   
         }
     }
 
-
+    //For main navi
     public void PlayAnimation() {
-        Debug.Log("playing:" + animtransitionname);
-        MasterAnimScript.Instance.PlayClip(animtransitionname);
+        if (naviGameObject != null)
+            naviGameObject.GetComponent<naviAnimation>().MoveToNextAnim();
+
+        /*
+         Debug.Log("playing:" + seqState.naviAnimClipName);
+
+        if(seqState.navi_avatar_animator != null && seqState.naviAnimClipName != null)
+            seqState.navi_avatar_animator.Play(seqState.naviAnimClipName);
+         */
+    }
+
+    /*
+    //For extra effects
+    public void PlaySecondaryAnimation() {
+        Debug.Log("playing:" + seqState.addAnimClipName);
+        if (seqState.navi_avatar_animator != null && seqState.addAnimClipName != null)
+            seqState.additional_animator.Play(seqState.addAnimClipName);
+    }
+    */
+
+    //For extra effects
+    public void PlaySecondaryAnimation() {
+        //Debug.Log("playing:" + seqState.addAnimClipName);
+        if (extraAnimObj != null)
+            extraAnimObj.GetComponent<playanim>().isThisOn = true ;
     }
 }

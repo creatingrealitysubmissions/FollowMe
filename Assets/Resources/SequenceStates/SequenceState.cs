@@ -5,4 +5,10 @@
 public class SequenceState : ScriptableObject {
     public AudioClip successClip;
     public AudioClip failClip;
+    public Animator navi_avatar_animator;
+    public string naviAnimClipName;
+    public Animator additional_animator;
+    public string addAnimClipName;
+
+    public string playanimscript;
 }
