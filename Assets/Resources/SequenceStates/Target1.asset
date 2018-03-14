@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd64c0761e9954d4d8629437229ef168, type: 3}
   m_Name: Target1
   m_EditorClassIdentifier: 
-  successClip: {fileID: 8300000, guid: 2d1aa667f8649694cb49ac5062dafd60, type: 3}
+  successClip: {fileID: 8300000, guid: 6945f95464020ad42a5da6a8bd2ee078, type: 3}
   failClip: {fileID: 0}

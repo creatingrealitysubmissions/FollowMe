@@ -7,11 +7,13 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
     public Renderer[] renderers;
     public SequenceState seqState;
     public AudioManagerSingleton audioManager;
+    public bool hasPlayed;
 
     public bool playsAnimation;
     public string animtransitionname;
     // Use this for initialization
     void Start () {
+        hasPlayed = false;
         boxCol = GetComponent<BoxCollider>();
         renderers = GetComponentsInChildren<Renderer>();
         audioManager = AudioManagerSingleton.Instance;
@@ -19,7 +21,10 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
 
     private void OnTriggerEnter(Collider other) {
         Debug.Log("Triggered");
-        Success();
+        if (!hasPlayed) {
+            hasPlayed = true;
+            Success();
+        }
     }
 
     public void PlayAudio() {

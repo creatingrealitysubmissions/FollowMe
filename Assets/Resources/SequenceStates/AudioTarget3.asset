@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd64c0761e9954d4d8629437229ef168, type: 3}
-  m_Name: AudioTarget1
+  m_Name: AudioTarget3
   m_EditorClassIdentifier: 
-  successClip: {fileID: 8300000, guid: 6945f95464020ad42a5da6a8bd2ee078, type: 3}
+  successClip: {fileID: 8300000, guid: 8794a02c9347e6342bdb15ef829929e2, type: 3}
   failClip: {fileID: 0}
