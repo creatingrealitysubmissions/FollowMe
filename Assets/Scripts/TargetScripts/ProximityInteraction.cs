@@ -49,7 +49,7 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
         RenderSuccessColor();
         if (isPlayAudioThenAnim) {
             PlayAudio();
-            Invoke("PlayAnimation", 1);
+            Invoke("PlayAnimation", 15);
             Invoke("PlaySecondaryAnimation", 15);
 
         } else {
