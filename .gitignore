@@ -42,6 +42,8 @@ obj/
 *.opendb
 
 Appbuild/
+new-builds/
+App-Testing/
 
 Assets/ThirdParty/
 Assets/ThirdParty.meta
