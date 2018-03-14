@@ -41,5 +41,7 @@ obj/
 *.idb
 *.opendb
 
+Appbuild/
+
 Assets/ThirdParty/
 Assets/ThirdParty.meta
