@@ -11,6 +11,10 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
     public GameObject naviGameObject;
     public bool hasPlayed;
 
+    public bool isEnd;
+
+    public scoreManager ScoreManager;
+
     public GameObject extraAnimObj;
     //public bool playsAnimation;
     //public string animtransitionname;
@@ -57,6 +61,10 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
             PlayAnimation();
             PlaySecondaryAnimation();   
         }
+
+        if (isEnd) {
+            EndSequence();
+        }
     }
 
     //For main navi
@@ -86,5 +94,9 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
         //Debug.Log("playing:" + seqState.addAnimClipName);
         if (extraAnimObj != null)
             extraAnimObj.GetComponent<playanim>().isThisOn = true ;
+    }
+
+    public void EndSequence() {
+        ScoreManager.ScoreCounter();
     }
 }

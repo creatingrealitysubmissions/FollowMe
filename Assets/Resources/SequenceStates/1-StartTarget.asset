@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd64c0761e9954d4d8629437229ef168, type: 3}
   m_Name: 1-StartTarget
   m_EditorClassIdentifier: 
-  successClip: {fileID: 8300000, guid: a926a16bf9225d54d98f9730fca046dd, type: 3}
+  successClip: {fileID: 8300000, guid: f3bd858cbf1c6c2419c79aa8f1c7471f, type: 3}
   failClip: {fileID: 0}
   navi_avatar_animator: {fileID: 0}
   naviAnimClipName: 
   additional_animator: {fileID: 0}
   addAnimClipName: 
+  playanimscript: 

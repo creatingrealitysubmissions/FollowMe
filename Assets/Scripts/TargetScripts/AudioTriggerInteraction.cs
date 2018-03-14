@@ -7,7 +7,7 @@ public class AudioTriggerInteraction : MonoBehaviour, ITargetInteraction {
     public Renderer[] renderers;
     public SequenceState seqState;
     public AudioManagerSingleton audioManager;
-
+    public scoreManager ScoreManager;
     public string keyword;
     public string targetkeyword = "yes";
     bool isKeywordSaid = false;
@@ -70,6 +70,13 @@ public class AudioTriggerInteraction : MonoBehaviour, ITargetInteraction {
 
         PlayAnimation();
         PlaySecondaryAnimation();
+
+        IncrementScore();
+    }
+
+    public void IncrementScore() {
+   
+        ScoreManager.ScoreCounter();
     }
 
     //For main navi
