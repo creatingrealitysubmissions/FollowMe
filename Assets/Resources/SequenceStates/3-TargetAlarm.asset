@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd64c0761e9954d4d8629437229ef168, type: 3}
   m_Name: 3-TargetAlarm
   m_EditorClassIdentifier: 
-  successClip: {fileID: 8300000, guid: 8794a02c9347e6342bdb15ef829929e2, type: 3}
+  successClip: {fileID: 8300000, guid: 7dd56d1512b78c7438c0f35472c1ea4f, type: 3}
   failClip: {fileID: 0}
   navi_avatar_animator: {fileID: 0}
   naviAnimClipName: 
