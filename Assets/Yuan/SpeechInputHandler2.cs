@@ -9,7 +9,7 @@ using System.Collections;
 
 namespace HoloToolkit.Unity.InputModule
 {
-    public class SpeechInputHandler : MonoBehaviour, ISpeechHandler
+    public class SpeechInputHandler2 : MonoBehaviour, ISpeechHandler
     {
         [Serializable]
         public struct KeywordAndResponse
@@ -99,24 +99,24 @@ namespace HoloToolkit.Unity.InputModule
             //Check to make sure the recognized keyword exists in the methods dictionary, then invoke the corresponding method.
             if (enabled && responses.TryGetValue(eventData.RecognizedText.ToLower(), out keywordResponse))
             {
-                //keywordResponse.Invoke();
+                keywordResponse.Invoke();
 
-                
+                /*
                 foreach (KeyValuePair<string, UnityEvent> pair in responses)
                 {
                     StartCoroutine(waitSequence(keywordResponse));
                 }
                 
-                
+                */
             }
 
         }
-        
+        /*
         IEnumerator waitSequence(UnityEvent e)
         {
             e.Invoke();
             yield return new WaitForSeconds(3);
         }
-        
+        */
     }
 }

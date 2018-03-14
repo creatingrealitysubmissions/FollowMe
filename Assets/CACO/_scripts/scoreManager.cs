@@ -13,30 +13,40 @@ public class scoreManager : MonoBehaviour {
 
 	public int score = 0;
 
+    public bool starBegin;
 
 	// Use this for initialization
 	void Start () {
 
+        starBegin = false;
 		starSuccess = gameObject.GetComponent<AudioSource> ();
-		starSuccess.Play ();
-		
+		//starSuccess.Play ();	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (score == 1) {
-			star1.SetActive (true);
-		}
-		if (score == 2) {
-			star2.SetActive (true);
-		}
-		if (score == 3) {
-			star3.SetActive (true);
-		}
-		if (score == 4) {
-			star4.SetActive (true);
-		}
+        if (starBegin == true)
+        {
+
+            if (score == 1)
+            {
+                star1.SetActive(true);
+            }
+            if (score == 2)
+            {
+                star2.SetActive(true);
+            }
+            if (score == 3)
+            {
+                star3.SetActive(true);
+            }
+            if (score == 4)
+            {
+                star4.SetActive(true);
+            }
+        }
+
 		
 	}
 
@@ -44,5 +54,11 @@ public class scoreManager : MonoBehaviour {
 		score++;
 		starSuccess.Play ();
 	}
+
+
+    public void starDisplay()
+    {
+        starBegin = true;
+    }
 
 }
