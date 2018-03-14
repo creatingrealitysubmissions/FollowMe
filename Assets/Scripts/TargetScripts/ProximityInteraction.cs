@@ -8,8 +8,10 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
     public SequenceState seqState;
     public AudioManagerSingleton audioManager;
 
-	// Use this for initialization
-	void Start () {
+    public bool playsAnimation;
+    public string animtransitionname;
+    // Use this for initialization
+    void Start () {
         boxCol = GetComponent<BoxCollider>();
         renderers = GetComponentsInChildren<Renderer>();
         audioManager = AudioManagerSingleton.Instance;
@@ -40,5 +42,15 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
         MessageGameController();
         RenderSuccessColor();
         PlayAudio();
+
+        if (playsAnimation) {
+            PlayAnimation();
+        }
+    }
+
+
+    public void PlayAnimation() {
+        Debug.Log("playing:" + animtransitionname);
+        MasterAnimScript.Instance.PlayClip(animtransitionname);
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+//using TMPro;
 public class AudioTriggerInteraction : MonoBehaviour, ITargetInteraction {
     private BoxCollider boxCol;
     public Renderer[] renderers;
@@ -17,12 +17,14 @@ public class AudioTriggerInteraction : MonoBehaviour, ITargetInteraction {
         boxCol = GetComponent<BoxCollider>();
         renderers = GetComponentsInChildren<Renderer>();
         audioManager = AudioManagerSingleton.Instance;
-
+        /*
         if(GetComponentInChildren<TextMeshProUGUI>() != null) {
             TextMeshProUGUI textMesh =GetComponentInChildren<TextMeshProUGUI>();
             textMesh.text = targetkeyword;
         }
+    */
     }
+
 
     private void OnTriggerEnter(Collider other) {
         Debug.Log("Triggered");
