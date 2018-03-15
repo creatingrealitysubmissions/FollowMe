@@ -99,6 +99,6 @@ public class ProximityInteraction : MonoBehaviour, ITargetInteraction {
 
     public void EndSequence() {
         ScoreManager.ScoreCounter();
-        //extraAnimObj.GetComponent<finalCongrats>().endReached = true;
+        PlaySecondaryAnimation();
     }
 }
